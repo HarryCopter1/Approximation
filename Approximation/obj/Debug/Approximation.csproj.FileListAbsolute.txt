@@ -1,0 +1,16 @@
+D:\Large Projects\Approximation\Approximation\bin\Debug\Approximation.exe
+D:\Large Projects\Approximation\Approximation\bin\Debug\Approximation.pdb
+D:\Large Projects\Approximation\Approximation\obj\Debug\Approximation.csprojAssemblyReference.cache
+D:\Large Projects\Approximation\Approximation\obj\Debug\Approximation.Properties.Resources.resources
+D:\Large Projects\Approximation\Approximation\obj\Debug\Approximation.csproj.GenerateResource.cache
+D:\Large Projects\Approximation\Approximation\obj\Debug\Approximation.csproj.CoreCompileInputs.cache
+D:\Large Projects\Approximation\Approximation\obj\Debug\Approximation.exe
+D:\Large Projects\Approximation\Approximation\obj\Debug\Approximation.pdb
+D:\Large Projects\Approximation\Approximation\bin\Debug\OxyPlot.dll
+D:\Large Projects\Approximation\Approximation\bin\Debug\OxyPlot.WindowsForms.dll
+D:\Large Projects\Approximation\Approximation\bin\Debug\OxyPlot.pdb
+D:\Large Projects\Approximation\Approximation\bin\Debug\OxyPlot.xml
+D:\Large Projects\Approximation\Approximation\bin\Debug\OxyPlot.WindowsForms.pdb
+D:\Large Projects\Approximation\Approximation\bin\Debug\OxyPlot.WindowsForms.xml
+D:\Large Projects\Approximation\Approximation\obj\Debug\Approximation.Form1.resources
+D:\Large Projects\Approximation\Approximation\obj\Debug\Approximation.csproj.CopyComplete
