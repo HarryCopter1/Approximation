@@ -9,7 +9,7 @@ namespace Approximation
 {
     class Dots
     {
-        public static ScatterSeries getScatter(List<int> x, List<int> y)
+        public static ScatterSeries getScatter(List<double> x, List<double> y)
         {
             var scatterSeries = new ScatterSeries { MarkerType = MarkerType.Circle };
             for (int i = 0; i < x.Count; i++)

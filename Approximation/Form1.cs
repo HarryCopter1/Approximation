@@ -21,8 +21,8 @@ namespace Approximation
 
         private void button1_Click(object sender, EventArgs e)
         {
-            List<int> x = new List<int>();
-            List<int> y = new List<int>();
+            List<double> x = new List<double>();
+            List<double> y = new List<double>();
             dataGridView1.AllowUserToAddRows = false; //removes last(Extra) row
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
@@ -31,51 +31,20 @@ namespace Approximation
             }
             dataGridView1.AllowUserToAddRows = true;
 
-            double a;
-            double b;
-            double yf;
-            double part1 = sum(x) * sum(y) - x.Count * sum(x, y);
-            double part2 = Math.Pow(sum(x), 2) - x.Count * sumPow(x);
-            a = part1 / part2;
+            Linear linear = new Linear(x, y);
 
+            label1.Text = linear.getRelativeError().ToString();
+            label2.Text = linear.getR().ToString();
+            label3.Text = linear.getDet().ToString();
 
+            /*  label1.Text = linear.a.ToString();
+              label2.Text = linear.b.ToString();*/
 
-            part1 = sum(x) * sum(x, y) - sumPow(x) * sum(y);
-            part2 = Math.Pow(sum(x), 2) - x.Count * sumPow(x);
-            b = part1 / part2;
-            
-            label1.Text = a.ToString();
-            label2.Text = b.ToString();
-            //   label1.Text = y.ToString();
+            myModel = linear.setModel();
 
-
-            myModel = Linear.setModel(x, y, a, b);
             this.plot1.Model = myModel;
         }
-                       
-        private double sum(List<int> arr)
-        {
-            return arr.Sum();
-        }
 
-        private double sum(List<int> arr1, List<int> arr2)
-        {
-            int sum = 0;
-            for (int i = 0; i < arr1.Count; i++)
-            {
-                sum += arr1[i] * arr2[i];
-            }
-            return sum;
-        }
 
-        private double sumPow(List<int> arr)
-        {
-            double sum = 0;
-            for (int i = 0; i < arr.Count; i++)
-            {
-                sum += Math.Pow(arr[i], 2);
-            };
-            return sum;
-        }
     }
 }
