@@ -1,4 +1,5 @@
-﻿using OxyPlot;
+﻿using Approximation.Regression;
+using OxyPlot;
 using OxyPlot.Axes;
 using OxyPlot.Series;
 using System;
@@ -8,51 +9,33 @@ using System.Text;
 
 namespace Approximation
 {
-    class Linear
+    public class Linear : Graph
     {
-        public double a;
-        public double b;
-        private double r;
         List<double> x = new List<double>();
         List<double> y = new List<double>();
 
-        public Linear(List<double> x, List<double> y)
+        public Linear(List<double> x, List<double> y) : base(x, y)
         {
             this.x = x.ToList();
             this.y = y.ToList();
             a = getA();
             b = getB();
             r = getR();
+            function = (z) => a * z + b;
         }
-
-        public PlotModel setModel()
-        {
-            var model = new PlotModel { Title = "Line approximation", Subtitle = "Graph" };
-                            
-
-
-            Func<double, double> batFn1 = (z) => a * z + b;
-            
-            model.Series.Add(new FunctionSeries(batFn1, x.Min(), x.Max(), 0.0001));
-            model.Series.Add(Dots.getScatter(x, y));
-            model.Axes.Add(new LinearAxis { IsPanEnabled = false, IsZoomEnabled = false, Position = AxisPosition.Bottom, Minimum = x.Min() - 0.5, Maximum = x.Max() + 0.5 });
-            model.Axes.Add(new LinearAxis { IsPanEnabled = false, IsZoomEnabled = false, Position = AxisPosition.Left, Minimum = y.Min() - 0.5, Maximum = y.Max() + 0.5 });
-            return model;
-        }
-
-
+        
         private double getA()
         {
-            double part1 = Func.sum(x) * Func.sum(y) - x.Count * Func.sum(x, y);
-            double part2 = Math.Pow(Func.sum(x), 2) - x.Count * Func.sumPow(x);
+            double part1 = Funcs.sum(x) * Funcs.sum(y) - x.Count * Funcs.sum(x, y);
+            double part2 = Math.Pow(Funcs.sum(x), 2) - x.Count * Funcs.sumPow(x);
             double a = part1 / part2;
             return a;
         }
 
         private double getB()
         {             
-            double part1 = Func.sum(x) * Func.sum(x, y) - Func.sumPow(x) * Func.sum(y);
-            double part2 = Math.Pow(Func.sum(x), 2) - x.Count * Func.sumPow(x);
+            double part1 = Funcs.sum(x) * Funcs.sum(x, y) - Funcs.sumPow(x) * Funcs.sum(y);
+            double part2 = Math.Pow(Funcs.sum(x), 2) - x.Count * Funcs.sumPow(x);
             double b = part1 / part2; ;
             return b;
         }
@@ -60,9 +43,9 @@ namespace Approximation
         //Коефіцієнт детермінації
         public double getR()
         {
-            double part1 = x.Count * Func.sum(x, y) - Func.sum(x) * Func.sum(y);
-            double part2 = Math.Sqrt((x.Count * Func.sumPow(x) - Math.Pow(Func.sum(x), 2)) * 
-                                     (x.Count * Func.sumPow(y) - Math.Pow(Func.sum(y), 2)));
+            double part1 = x.Count * Funcs.sum(x, y) - Funcs.sum(x) * Funcs.sum(y);
+            double part2 = Math.Sqrt((x.Count * Funcs.sumPow(x) - Math.Pow(Funcs.sum(x), 2)) * 
+                                     (x.Count * Funcs.sumPow(y) - Math.Pow(Funcs.sum(y), 2)));
             double r = part1 / part2; ;
             return r;
         }        

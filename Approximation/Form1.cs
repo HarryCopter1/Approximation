@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Approximation.Regression;
 using OxyPlot;
 using OxyPlot.Series;
 
@@ -13,7 +14,7 @@ namespace Approximation
 {
     public partial class Form1 : Form
     {
-        PlotModel myModel = new PlotModel();
+        PlotModel myModel;
         public Form1()
         {
             this.InitializeComponent();
@@ -21,6 +22,7 @@ namespace Approximation
 
         private void button1_Click(object sender, EventArgs e)
         {
+            myModel = new PlotModel();
             List<double> x = new List<double>();
             List<double> y = new List<double>();
             dataGridView1.AllowUserToAddRows = false; //removes last(Extra) row
@@ -31,20 +33,51 @@ namespace Approximation
             }
             dataGridView1.AllowUserToAddRows = true;
 
-            Linear linear = new Linear(x, y);
+          /*  linear = new Linear(x, y);
+            power = new Power(x, y);
+            expo = new abExponential(x, y);*/
+            Graph graph = new Graph(x, y);
 
-            label1.Text = linear.getRelativeError().ToString();
-            label2.Text = linear.getR().ToString();
-            label3.Text = linear.getDet().ToString();
+            /* label1.Text = linear.getRelativeError().ToString();
+             label2.Text = linear.getR().ToString();
+             label3.Text = linear.getDet().ToString();*/
 
-            /*  label1.Text = linear.a.ToString();
-              label2.Text = linear.b.ToString();*/
+            Quadratic quad = new Quadratic(x, y);
 
-            myModel = linear.setModel();
+            label1.Text = quad.a.ToString();
+            label2.Text = quad.b.ToString();
+            label3.Text = quad.c.ToString();
+
+
+
+            // myModel = linear.getModel();
+
+            //   myModel = expo.getModel();
+            // myModel = power.getModel();
+            myModel = graph.getModel();
 
             this.plot1.Model = myModel;
         }
 
-
+     /*   public static PlotModel operator + (Linear op1, Power op2)
+        {
+            PlotModel p;
+            return p;
+        }
+        */
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //linear = null;
+            //this.plot1.Model = null;
+            myModel.Series.Clear();
+            foreach (var axis in myModel.Axes)
+                axis.Reset();
+            myModel.ResetAllAxes();
+            myModel.InvalidatePlot(true);
+            
+            //plot1.Dispose();
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+        }
     }
 }

@@ -57,10 +57,13 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Func.cs" />
+    <Compile Include="Funcs.cs" />
+    <Compile Include="Regression\abExponential.cs" />
+    <Compile Include="Regression\Graph.cs" />
     <Compile Include="Regression\Linear.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Regression\Power.cs" />
     <Compile Include="Regression\Quadratic.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
