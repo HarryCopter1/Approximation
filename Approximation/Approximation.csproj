@@ -58,7 +58,9 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Funcs.cs" />
+    <Compile Include="Matrix.cs" />
     <Compile Include="Regression\abExponential.cs" />
+    <Compile Include="Regression\Cubic.cs" />
     <Compile Include="Regression\Graph.cs" />
     <Compile Include="Regression\Linear.cs" />
     <Compile Include="Program.cs" />
