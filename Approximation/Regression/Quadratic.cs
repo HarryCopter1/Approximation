@@ -14,7 +14,6 @@ namespace Approximation.Regression
         {
             this.x = x.ToList();
             this.y = y.ToList();
-                 
 
             findSolution(getMatrix(), ref a, ref b, ref c);
 
@@ -22,47 +21,97 @@ namespace Approximation.Regression
             function = (z) => a * Math.Pow(z, 2) + b * z + c;
         }
 
+
+        //Коефіцієнт детермінації
+        public double getR()
+        {
+            double r = Math.Sqrt(1f - sumCor1(y) / sumCor2(y));
+            return r;
+        }
+
+        public double sumCor1(List<double> y)
+        {
+            double sum = 0;
+            for (int i = 0; i < x.Count; i++)
+            {
+                sum += Math.Pow((y[i] - yx(y[i])), 2);
+            }
+            return sum;
+        }
+
+        public double sumCor2(List<double> y)
+        {
+            double sum = 0;
+            for (int i = 0; i < x.Count; i++)
+            {
+                sum += Math.Pow((y[i] - y_(y)), 2);
+            }
+            return sum;
+        }
+
+        //Коефіцієнт детермінації
+        public double getDet()
+        {
+            return Math.Pow(r, 2);
+        }
+
+        //Середня помилка апроксимації
+        public double getRelativeError()
+        {
+            double part1 = 1f / x.Count * sumEr() * 100f;
+            return part1;
+        }
+
+        //Сума
+        private double sumEr()
+        {
+            double sum = 0;
+
+            for (int i = 0; i < x.Count; i++)
+            {
+                sum += Math.Abs((y[i] - yx(x[i])) / y[i]);
+            }
+            return sum;
+        }
+
+        //y*
+        private double yx(double X)
+        {
+            double yx = a * Math.Pow(X,2) + b * X + c;
+            return yx;
+        }
+
+
+        private double y_(List<double> x)
+        {
+            double y_ = 1f / x.Count * Funcs.sum(x);
+            return y_;
+        }
+        
+
         private double[,] getMatrix()
         {
             double[,] mat = new double[3,4];
 
-            mat[0, 0] = sumPow(x,2);
+            mat[0, 0] = Funcs.sumPow(x,2);
             mat[0, 1] = Funcs.sum(x);
             mat[0, 2] = x.Count;
             mat[0, 3] = Funcs.sum(y);
 
-            mat[1, 0] = sumPow(x, 3);
-            mat[1, 1] = sumPow(x, 2);
+            mat[1, 0] = Funcs.sumPow(x, 3);
+            mat[1, 1] = Funcs.sumPow(x, 2);
             mat[1, 2] = Funcs.sum(x);
             mat[1, 3] = Funcs.sum(x,y);
 
-            mat[2, 0] = sumPow(x, 4);
-            mat[2, 1] = sumPow(x, 3);
-            mat[2, 2] = sumPow(x, 2);
-            mat[2, 3] = sumPow(x, y, 2);
+            mat[2, 0] = Funcs.sumPow(x, 4);
+            mat[2, 1] = Funcs.sumPow(x, 3);
+            mat[2, 2] = Funcs.sumPow(x, 2);
+            mat[2, 3] = Funcs.sumPow(x, y, 2);
                         
             return mat;
         }
 
-        private double sumPow(List<double> x, int power)
-        {
-            double sum = 0;
-            for (int i = 0; i < x.Count; i++)
-            {
-                sum += Math.Pow(x[i], power);
-            }
-            return sum;
-        }
 
-        private double sumPow(List<double> x, List<double> y, int power)
-        {
-            double sum = 0;
-            for (int i = 0; i < x.Count; i++)
-            {
-                sum += Math.Pow(x[i], power)*y[i];
-            }
-            return sum;
-        }
 
         // This functions finds the determinant of Matrix 
         static double determinantOfMatrix(double[,] mat)

@@ -33,7 +33,7 @@ namespace Approximation.Regression
         private double getB()
         {
             double part1 = x.Count * sumLn(x, y) - Funcs.sum(x) * sumLn(y);
-            double part2 = x.Count * Funcs.sumPow(x) - Math.Pow(Funcs.sum(x), 2);
+            double part2 = x.Count * Funcs.sumPow(x,2) - Math.Pow(Funcs.sum(x), 2);
             double b = Math.Exp(part1 / part2);
             return b;
         }

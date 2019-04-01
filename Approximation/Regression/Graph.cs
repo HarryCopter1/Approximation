@@ -35,12 +35,19 @@ namespace Approximation.Regression
             Quadratic quadratic = new Quadratic(x, y);
             abExponential expo = new abExponential(x, y);
             Cubic cubic = new Cubic(x, y);
-
-                model.Series.Add(new FunctionSeries(expo.function, x.Min(), x.Max(), 0.0001, "Expo"));
-                model.Series.Add(new FunctionSeries(linear.function, x.Min(), x.Max(), 0.0001, "linear"));
-                model.Series.Add(new FunctionSeries(power.function, x.Min(), x.Max(), 0.0001, "power"));
-                model.Series.Add(new FunctionSeries(quadratic.function, x.Min(), x.Max(), 0.0001, "quadratic"));
-            model.Series.Add(new FunctionSeries(cubic.function, x.Min(), x.Max(), 0.0001, "cubic"));
+            Logarithmic logarithmic = new Logarithmic(x, y);
+            Hyperbolic hyperbolic = new Hyperbolic(x, y);
+            Exponential exponential = new Exponential(x, y);
+            /*
+                         model.Series.Add(new FunctionSeries(expo.function, x.Min(), x.Max(), 0.0001, "Expo"));
+                         model.Series.Add(new FunctionSeries(linear.function, x.Min(), x.Max(), 0.0001, "linear"));
+                         model.Series.Add(new FunctionSeries(power.function, x.Min(), x.Max(), 0.0001, "power"));
+                         model.Series.Add(new FunctionSeries(quadratic.function, x.Min(), x.Max(), 0.0001, "quadratic"));
+                         model.Series.Add(new FunctionSeries(cubic.function, x.Min(), x.Max(), 0.0001, "cubic"));
+                     */
+            // model.Series.Add(new FunctionSeries(logarithmic.function, x.Min(), x.Max(), 0.0001, "logarithmic"));
+           // model.Series.Add(new FunctionSeries(hyperbolic.function, x.Min(), x.Max(), 0.0001, "hyperbolic"));
+            model.Series.Add(new FunctionSeries(exponential.function, x.Min(), x.Max(), 0.0001, "exponential"));
             model.Series.Add(Dots.getScatter(x, y));
             model.Axes.Add(new LinearAxis { IsPanEnabled = false, IsZoomEnabled = false, Position = AxisPosition.Bottom, Minimum = x.Min() - 0.5, Maximum = x.Max() + 0.5 });
             model.Axes.Add(new LinearAxis { IsPanEnabled = false, IsZoomEnabled = false, Position = AxisPosition.Left, Minimum = y.Min() - 0.5, Maximum = y.Max() + 0.5 });

@@ -27,15 +27,15 @@ namespace Approximation
         private double getA()
         {
             double part1 = Funcs.sum(x) * Funcs.sum(y) - x.Count * Funcs.sum(x, y);
-            double part2 = Math.Pow(Funcs.sum(x), 2) - x.Count * Funcs.sumPow(x);
+            double part2 = Math.Pow(Funcs.sum(x), 2) - x.Count * Funcs.sumPow(x,2);
             double a = part1 / part2;
             return a;
         }
 
         private double getB()
         {             
-            double part1 = Funcs.sum(x) * Funcs.sum(x, y) - Funcs.sumPow(x) * Funcs.sum(y);
-            double part2 = Math.Pow(Funcs.sum(x), 2) - x.Count * Funcs.sumPow(x);
+            double part1 = Funcs.sum(x) * Funcs.sum(x, y) - Funcs.sumPow(x,2) * Funcs.sum(y);
+            double part2 = Math.Pow(Funcs.sum(x), 2) - x.Count * Funcs.sumPow(x,2);
             double b = part1 / part2; ;
             return b;
         }
@@ -44,12 +44,13 @@ namespace Approximation
         public double getR()
         {
             double part1 = x.Count * Funcs.sum(x, y) - Funcs.sum(x) * Funcs.sum(y);
-            double part2 = Math.Sqrt((x.Count * Funcs.sumPow(x) - Math.Pow(Funcs.sum(x), 2)) * 
-                                     (x.Count * Funcs.sumPow(y) - Math.Pow(Funcs.sum(y), 2)));
+            double part2 = Math.Sqrt((x.Count * Funcs.sumPow(x,2) - Math.Pow(Funcs.sum(x), 2)) * 
+                                     (x.Count * Funcs.sumPow(y,2) - Math.Pow(Funcs.sum(y), 2)));
             double r = part1 / part2; ;
             return r;
         }        
 
+        //Коефіцієнт детермінації
         public double getDet()
         {
             return Math.Pow(r, 2);
@@ -58,8 +59,8 @@ namespace Approximation
         //Середня помилка апроксимації
         public double getRelativeError()
         {
-            double part1 = 1f / x.Count;
-            return part1 * sumEr() * 100f; 
+            double part1 = 1f / x.Count * sumEr() * 100f;
+            return part1; 
         }
 
         //Сума

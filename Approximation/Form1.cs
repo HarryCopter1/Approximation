@@ -32,21 +32,20 @@ namespace Approximation
                 y.Add(Convert.ToInt32(row.Cells[1].Value));
             }
             dataGridView1.AllowUserToAddRows = true;
-
-          /*  linear = new Linear(x, y);
-            power = new Power(x, y);
-            expo = new abExponential(x, y);*/
+            
             Graph graph = new Graph(x, y);
 
             /* label1.Text = linear.getRelativeError().ToString();
              label2.Text = linear.getR().ToString();
              label3.Text = linear.getDet().ToString();*/
 
-            Quadratic quad = new Quadratic(x, y);
+            Quadratic quadratic = new Quadratic(x, y);
 
-            label1.Text = quad.a.ToString();
-            label2.Text = quad.b.ToString();
-            label3.Text = quad.c.ToString();
+            label1.Text = quadratic.a.ToString();
+            label2.Text = quadratic.b.ToString();
+            label3.Text = quadratic.getR().ToString();
+            label4.Text = quadratic.getDet().ToString();
+            label5.Text = quadratic.getRelativeError().ToString();
 
 
 

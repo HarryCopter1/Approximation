@@ -25,49 +25,19 @@ namespace Approximation.Regression
         
         private double getA()
         {
-            double part1 = (1f / x.Count) * sumLn(y);
-            double part2 = (b / x.Count) * sumLn(x);
+            double part1 = (1f / x.Count) * Funcs.sumLn(y);
+            double part2 = (b / x.Count) * Funcs.sumLn(x);
             double a = Math.Exp(part1 - part2);
             return a;
         }
 
         private double getB()
         {
-            double part1 = (x.Count * sumLn(x, y)) - (sumLn(x) * sumLn(y));
-            double part2 = (x.Count * sumPowLn(x)) - Math.Pow(sumLn(x),2);
+            double part1 = (x.Count * Funcs.sumLn(x, y)) - (Funcs.sumLn(x) * Funcs.sumLn(y));
+            double part2 = (x.Count * Funcs.sumPowLn(x,2)) - Math.Pow(Funcs.sumLn(x),2);
             double b = (part1 / part2);
             return b;
         }
 
-        private double sumPowLn(List<double> x)
-        {
-            double sum = 0;
-            for(int i = 0; i<x.Count;i++)
-            {
-                sum += Math.Pow(Math.Log(x[i]),2);
-            }
-            return sum;
-        }
-
-
-        private double sumLn(List<double> x)
-        {
-            double sum = 0;
-            for (int i = 0; i < x.Count; i++)
-            {
-                sum += Math.Log(x[i]);
-            }
-            return sum;
-        }
-
-        private double sumLn(List<double> x, List<double> y)
-        {
-            double sum = 0;
-            for (int i = 0; i < x.Count; i++)
-            {
-                sum += (Math.Log(x[i]) * Math.Log(y[i]));
-            }
-            return sum;
-        }
     }
 }
