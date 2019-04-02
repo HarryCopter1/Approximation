@@ -15,17 +15,20 @@ namespace Approximation.Regression
             this.x = x.ToList();
             this.y = y.ToList();
 
+
             findSolution(getMatrix(), ref a, ref b, ref c);
+            r = getR();
+            det = getDet();
+            err = getRelativeError();
 
 
             function = (z) => a * Math.Pow(z, 2) + b * z + c;
         }
 
-
-        //Коефіцієнт детермінації
+        //Коефіцієнт Кореляції
         public double getR()
         {
-            double r = Math.Sqrt(1f - sumCor1(y) / sumCor2(y));
+            double r = Math.Sqrt(1f - (sumCor1(y) / sumCor2(y)));
             return r;
         }
 
@@ -34,7 +37,8 @@ namespace Approximation.Regression
             double sum = 0;
             for (int i = 0; i < x.Count; i++)
             {
-                sum += Math.Pow((y[i] - yx(y[i])), 2);
+                //sum += Math.Pow((y[i] - yx(y[i])), 2);
+                sum += Math.Pow((y[i] - a * Math.Pow(x[i], 2) - b * x[i] - c), 2);
             }
             return sum;
         }
@@ -77,17 +81,19 @@ namespace Approximation.Regression
         //y*
         private double yx(double X)
         {
-            double yx = a * Math.Pow(X,2) + b * X + c;
+            //double yx = a * Math.Pow(X,2) + b * X + c;
+            double yx = Math.Pow(X, 2) * a + b * X + c;
             return yx;
         }
 
-
         private double y_(List<double> x)
         {
-            double y_ = 1f / x.Count * Funcs.sum(x);
+            double y_ = Funcs.sum(x) / x.Count;
             return y_;
         }
-        
+
+
+
 
         private double[,] getMatrix()
         {

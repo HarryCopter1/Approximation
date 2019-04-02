@@ -21,6 +21,9 @@ namespace Approximation
             a = getA();
             b = getB();
             r = getR();
+            det = getDet();
+            err = getRelativeError();
+
             function = (z) => a * z + b;
         }
         
