@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Approximation.Regression;
 using OxyPlot;
 using OxyPlot.Series;
+using OxyPlot.WindowsForms;
 
 namespace Approximation
 {
@@ -25,49 +27,57 @@ namespace Approximation
             myModel = new PlotModel();
         }
 
-
-        //TODO FIX UPDATE CHECBOX
-
+        //When cell is empty set it value to 0
+        private void WhenCellIsEmptySetToZero()
+        {
+            dataGridView1.AllowUserToAddRows = false; //removes last(Extra) row
+            foreach (DataGridViewRow row in dataGridView1.Rows) 
+            {
+                for (int i = 0; i < dataGridView1.Columns.Count; i++)
+                {
+                    if (string.IsNullOrEmpty(row.Cells[i].Value as string))
+                    {
+                        row.Cells[i].Value = 0;
+                    }
+                }
+            }
+        }
+       
         private void button1_Click(object sender, EventArgs e)
         {
-            clearPlot();
-            myModel = new PlotModel();
-            dataGridView1.AllowUserToAddRows = false; //removes last(Extra) row
-            foreach (DataGridViewRow row in dataGridView1.Rows)
+            if ((dataGridView1.Rows.Count != 1))
             {
-                x.Add(Convert.ToInt32(row.Cells[0].Value));
-                y.Add(Convert.ToInt32(row.Cells[1].Value));
+                WhenCellIsEmptySetToZero();
+
+                clearPlot();
+                myModel = new PlotModel();
+
+
+                //Reads data from gridview
+                x.Clear();
+                y.Clear();
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    x.Add(Convert.ToInt32(row.Cells[0].Value));
+                    y.Add(Convert.ToInt32(row.Cells[1].Value));
+                }
+                dataGridView1.AllowUserToAddRows = true;
+
+
+                // Prevent memory loss
+                if (x.Max() - x.Min() < 1000 &&
+                        y.Max() - y.Min() < 1000)
+                {
+
+                    Graph graph = new Graph(x, y);
+
+                    checkBoxes(); //gets selected methods
+
+                    myModel = graph.getModel();
+
+                    this.plot1.Model = myModel;
+                }
             }
-            dataGridView1.AllowUserToAddRows = true;
-            
-            Graph graph = new Graph(x, y);
-
-            /* label1.Text = linear.getRelativeError().ToString();
-             label2.Text = linear.getR().ToString();
-             label3.Text = linear.getDet().ToString();*/
-
-            Quadratic quadratic = new Quadratic(x, y);
-            
-            label1.Text = Math.Round(quadratic.a, 4).ToString();
-            label2.Text = Math.Round(quadratic.b, 4).ToString();
-            label3.Text = Math.Round(quadratic.c, 4).ToString();
-            label4.Text = Math.Round(quadratic.d, 4).ToString();
-            label5.Text = Math.Round(quadratic.r, 4).ToString();
-            label6.Text = Math.Round(quadratic.det, 4).ToString();
-            label7.Text = Math.Round(quadratic.err, 4).ToString();
-
-
-
-            // myModel = linear.getModel();
-
-            //   myModel = expo.getModel();
-            // myModel = power.getModel();
-
-            checkBoxes();
-
-            myModel = graph.getModel();
-
-            this.plot1.Model = myModel;
         }
 
         void checkBoxes()
@@ -181,6 +191,122 @@ namespace Approximation
             //plot1.Dispose();
             GC.Collect();
             GC.WaitForPendingFinalizers();
+        }
+
+
+        /*
+         * Save graph as png file
+         */
+        private void pngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFile = new SaveFileDialog();
+            string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop); //desktop path
+            saveFile.InitialDirectory = desktop;
+            saveFile.Filter = "Image Files(*.png) |*.png;";
+            saveFile.Title = "Save an image";
+            saveFile.FileName = "graph";
+            saveFile.AddExtension = true;
+            saveFile.DefaultExt = "png";
+            saveFile.FilterIndex = 2;
+            saveFile.RestoreDirectory = true;
+
+            if (saveFile.ShowDialog() == DialogResult.OK)
+            {
+                var pngExporter = new PngExporter { Width = 600, Height = 400, Background = OxyColors.White };
+                pngExporter.ExportToFile(myModel, saveFile.FileName);
+            }
+        }
+
+        /*
+         * Save graph as pdf file
+         */
+        private void pdfToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFile = new SaveFileDialog();
+            string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop); //desktop path
+            saveFile.InitialDirectory = desktop;
+            saveFile.Filter = "Pdf Files(*.pdf) |*.pdf;";
+            saveFile.Title = "Save an image";
+            saveFile.FileName = "graph";
+            saveFile.AddExtension = true;
+            saveFile.DefaultExt = "pdf";
+            saveFile.FilterIndex = 2;
+            saveFile.RestoreDirectory = true;
+
+            if (saveFile.ShowDialog() == DialogResult.OK)
+            {
+                var pdfExporter = new PdfExporter { Width = 600, Height = 400, Background = OxyColors.White };
+                pdfExporter.ExportToFile(myModel, saveFile.FileName);
+            }
+        }
+
+        /*
+         * Save graph as svg file
+         */
+        private void svgToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFile = new SaveFileDialog();
+            string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop); //desktop path
+            saveFile.InitialDirectory = desktop;
+            saveFile.Filter = "Svg Files(*.svg) |*.svg;";
+            saveFile.Title = "Save an image";
+            saveFile.FileName = "graph";
+            saveFile.AddExtension = true;
+            saveFile.DefaultExt = "svg";
+            saveFile.FilterIndex = 2;
+            saveFile.RestoreDirectory = true;
+
+            if (saveFile.ShowDialog() == DialogResult.OK)
+            {
+                var svgExporter = new OxyPlot.WindowsForms.SvgExporter { Width = 600, Height = 400 };
+                svgExporter.ExportToFile(myModel, saveFile.FileName);
+            }
+        }
+                
+        //Prevent entering non-numeric values to gridview
+        private void dataGridView1_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            try
+            {
+                e.Control.KeyPress +=
+      new KeyPressEventHandler(Control_KeyPress);
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+        private void Control_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar)
+     && !char.IsDigit(e.KeyChar)
+     && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if (e.KeyChar == '.'
+                && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var myForm = new Form2();
+            myForm.Show();
         }
     }
 }

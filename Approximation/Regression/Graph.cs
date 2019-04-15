@@ -29,11 +29,10 @@ namespace Approximation.Regression
             this.y = y.ToList();
         }
 
-
-
+        
         public PlotModel getModel()
         {
-            var model = new PlotModel { Title = "Line approximation", Subtitle = "Graph" };
+            var model = new PlotModel { Title = "Approximation", Subtitle = "Graph" };
 
             Linear linear = new Linear(x, y);
             Power power = new Power(x, y);
@@ -45,22 +44,10 @@ namespace Approximation.Regression
             Exponential exponential = new Exponential(x, y);
 
             
-
             foreach (FunctionSeries ser in  functionList)
             {
                 model.Series.Add(ser);
             }
-
-          //  model.Series.Add(new FunctionSeries(abexpo.function, x.Min(), x.Max(), 0.0001, "abexpo"));
-          //  model.Series.Add(new FunctionSeries(linear.function, x.Min(), x.Max(), 0.0001, "linear"));
-           // model.Series.Add(new FunctionSeries(power.function, x.Min(), x.Max(), 0.0001, "power"));
-           // model.Series.Add(new FunctionSeries(quadratic.function, x.Min(), x.Max(), 0.0001, "quadratic"));
-           // model.Series.Add(new FunctionSeries(cubic.function, x.Min(), x.Max(), 0.0001, "cubic"));
-           // model.Series.Add(new FunctionSeries(logarithmic.function, x.Min(), x.Max(), 0.0001, "logarithmic"));
-           // model.Series.Add(new FunctionSeries(hyperbolic.function, x.Min(), x.Max(), 0.0001, "hyperbolic"));
-           // model.Series.Add(new FunctionSeries(exponential.function, x.Min(), x.Max(), 0.0001, "exponential"));
-
-
 
             model.Series.Add(Dots.getScatter(x, y));
             model.Axes.Add(new LinearAxis { IsPanEnabled = false, IsZoomEnabled = false, Position = AxisPosition.Bottom, Minimum = x.Min() - 0.5, Maximum = x.Max() + 0.5 });
