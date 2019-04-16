@@ -24,14 +24,9 @@ namespace Approximation.Regression
             test.AddLinearEquation(Funcs.sumPow(x, y, 3),   Funcs.sumPow(x, 6),     Funcs.sumPow(x, 5),     Funcs.sumPow(x, 4),     Funcs.sumPow(x, 3));
             var result = test.Solve();
 
-            string tes="";
-
-            foreach (var asdf in result)
-            {
-                tes = tes + asdf + "\n";
-                Console.Write(asdf);
-            }
-
+         
+            name = "Cubic";
+            
             a = result[0];
             b = result[1];
             c = result[2];

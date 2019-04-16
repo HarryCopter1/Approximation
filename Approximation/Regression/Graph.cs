@@ -10,40 +10,32 @@ namespace Approximation.Regression
 {
     public class Graph
     {
-        public double a;
-        public double b;
-        public double c;
-        public double d;
-        public double r;
-        public double det;
-        public double err;
+        protected double a;
+        protected double b;
+        protected double c;
+        protected double d;
+        protected double r;
+        protected double det;
+        protected double err;
+        protected string name;
         public Func<double, double> function;
         List<double> x = new List<double>();
         List<double> y = new List<double>();
 
-        static public List<FunctionSeries> functionList = new List<FunctionSeries>();
+        static public List<Graph> graphList = new List<Graph>();
+
 
         public Graph(List<double> x, List<double> y)
         {
             this.x = x.ToList();
             this.y = y.ToList();
         }
-
-        
-        public PlotModel getModel()
+                
+        public PlotModel getModel(List<FunctionSeries> functionList)
         {
             var model = new PlotModel { Title = "Approximation", Subtitle = "Graph" };
+                        
 
-            Linear linear = new Linear(x, y);
-            Power power = new Power(x, y);
-            Quadratic quadratic = new Quadratic(x, y);
-            abExponential abexpo = new abExponential(x, y);
-            Cubic cubic = new Cubic(x, y);
-            Logarithmic logarithmic = new Logarithmic(x, y);
-            Hyperbolic hyperbolic = new Hyperbolic(x, y);
-            Exponential exponential = new Exponential(x, y);
-
-            
             foreach (FunctionSeries ser in  functionList)
             {
                 model.Series.Add(ser);
@@ -55,5 +47,38 @@ namespace Approximation.Regression
             return model;
         }
 
+        public double getA()
+        {
+            return a;
+        }
+
+        public double getB()
+        {
+            return b;
+        }
+
+        //Коефіцієнт детермінації
+        public double getR()
+        {
+            return r;
+        }
+
+        //Коефіцієнт детермінації
+        public double getDet()
+        {
+            return det;
+        }
+
+        //Середня помилка апроксимації
+        public double getRelativeError()
+        {
+            return err;        
+        }
+
+        public string getName()
+        {
+            return name;
+        }
+        
     }
 }

@@ -22,6 +22,7 @@ namespace Approximation.Regression
             r = getR();
             det = getDet();
             err = getRelativeError();
+            name = "abExponential";
 
             function = (z) => a * Math.Pow(b, z);
         }

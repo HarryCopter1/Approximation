@@ -20,7 +20,7 @@ namespace Approximation.Regression
             r = getR();
             det = getDet();
             err = getRelativeError();
-
+            name = "Quadratic";
 
             function = (z) => a * Math.Pow(z, 2) + b * z + c;
         }

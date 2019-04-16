@@ -23,6 +23,7 @@ namespace Approximation
             r = getR();
             det = getDet();
             err = getRelativeError();
+            name = "Linear";
 
             function = (z) => a * z + b;
         }

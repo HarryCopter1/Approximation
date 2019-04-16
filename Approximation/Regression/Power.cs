@@ -22,6 +22,7 @@ namespace Approximation.Regression
             r = getR();
             det = getDet();
             err = getRelativeError();
+            name = "Power";
 
             function = (z) => a * Math.Pow(z, b);
         }

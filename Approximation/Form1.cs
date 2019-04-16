@@ -21,10 +21,12 @@ namespace Approximation
         List<double> x = new List<double>();
         List<double> y = new List<double>();
 
+
         public Form1()
         {
             this.InitializeComponent();
             myModel = new PlotModel();
+
         }
 
         //When cell is empty set it value to 0
@@ -45,6 +47,7 @@ namespace Approximation
        
         private void button1_Click(object sender, EventArgs e)
         {
+            Graph.graphList.Clear();
             if ((dataGridView1.Rows.Count != 1))
             {
                 WhenCellIsEmptySetToZero();
@@ -68,108 +71,116 @@ namespace Approximation
                 if (x.Max() - x.Min() < 1000 &&
                         y.Max() - y.Min() < 1000)
                 {
-
                     Graph graph = new Graph(x, y);
-
-                    checkBoxes(); //gets selected methods
-
-                    myModel = graph.getModel();
+                    
+                    myModel = graph.getModel(checkBoxes());
 
                     this.plot1.Model = myModel;
                 }
             }
         }
 
-        void checkBoxes()
+        //Gets selected methods of approximation
+        List<FunctionSeries> checkBoxes()
         {
+            List<FunctionSeries> functionList = new List<FunctionSeries>();
+
             if (checkBox1.Checked)
             {
-                Graph.functionList.RemoveAll(o => o.Title == "abexpo");
+                functionList.RemoveAll(o => o.Title == "abexpo");
                 abExponential abexpo = new abExponential(x, y);
-                Graph.functionList.Add(new FunctionSeries(abexpo.function, x.Min(), x.Max(), 0.0001, "abexpo"));
+                Graph.graphList.Add(abexpo);
+                functionList.Add(new FunctionSeries(abexpo.function, x.Min(), x.Max(), 0.0001, "abexpo"));
             }
             else
             {
-                Graph.functionList.RemoveAll(o => o.Title == "abexpo");
+                functionList.RemoveAll(o => o.Title == "abexpo");
             }
 
             if (checkBox2.Checked)
             {
-                Graph.functionList.RemoveAll(o => o.Title == "cubic");
+                functionList.RemoveAll(o => o.Title == "cubic");
                 Cubic cubic = new Cubic(x, y);
-                Graph.functionList.Add(new FunctionSeries(cubic.function, x.Min(), x.Max(), 0.0001, "cubic"));
+                Graph.graphList.Add(cubic);
+                functionList.Add(new FunctionSeries(cubic.function, x.Min(), x.Max(), 0.0001, "cubic"));
             }
             else
             {
-                Graph.functionList.RemoveAll(o => o.Title == "cubic");
+                functionList.RemoveAll(o => o.Title == "cubic");
             }
 
             if (checkBox3.Checked)
             {
-                Graph.functionList.RemoveAll(o => o.Title == "exponential");
+                functionList.RemoveAll(o => o.Title == "exponential");
                 Exponential exponential = new Exponential(x, y);
-                Graph.functionList.Add(new FunctionSeries(exponential.function, x.Min(), x.Max(), 0.0001, "exponential"));
+                Graph.graphList.Add(exponential);
+                functionList.Add(new FunctionSeries(exponential.function, x.Min(), x.Max(), 0.0001, "exponential"));
             }
             else
             {
-                Graph.functionList.RemoveAll(o => o.Title == "exponential");
+                functionList.RemoveAll(o => o.Title == "exponential");
             }
 
             if (checkBox4.Checked)
             {
-                Graph.functionList.RemoveAll(o => o.Title == "hyperbolic");
+                functionList.RemoveAll(o => o.Title == "hyperbolic");
                 Hyperbolic hyperbolic = new Hyperbolic(x, y);
-                Graph.functionList.Add(new FunctionSeries(hyperbolic.function, x.Min(), x.Max(), 0.0001, "hyperbolic"));
+                Graph.graphList.Add(hyperbolic);
+                functionList.Add(new FunctionSeries(hyperbolic.function, x.Min(), x.Max(), 0.0001, "hyperbolic"));
             }
             else
             {
-                Graph.functionList.RemoveAll(o => o.Title == "hyperbolic");
+                functionList.RemoveAll(o => o.Title == "hyperbolic");
             }
 
             if (checkBox5.Checked)
             {
-                Graph.functionList.RemoveAll(o => o.Title == "linear");
+                functionList.RemoveAll(o => o.Title == "linear");
                 Linear linear = new Linear(x, y);
-                Graph.functionList.Add(new FunctionSeries(linear.function, x.Min(), x.Max(), 0.0001, "linear"));
+                Graph.graphList.Add(linear);
+                functionList.Add(new FunctionSeries(linear.function, x.Min(), x.Max(), 0.0001, "linear"));
             }
             else
             {
-                Graph.functionList.RemoveAll(o => o.Title == "linear");
+                functionList.RemoveAll(o => o.Title == "linear");
             }
 
             if (checkBox6.Checked)
             {
-                Graph.functionList.RemoveAll(o => o.Title == "logarithmic");
+                functionList.RemoveAll(o => o.Title == "logarithmic");
                 Logarithmic logarithmic = new Logarithmic(x, y);
-                Graph.functionList.Add(new FunctionSeries(logarithmic.function, x.Min(), x.Max(), 0.0001, "logarithmic"));
+                Graph.graphList.Add(logarithmic);
+                functionList.Add(new FunctionSeries(logarithmic.function, x.Min(), x.Max(), 0.0001, "logarithmic"));
             }
             else
             {
-                Graph.functionList.RemoveAll(o => o.Title == "logarithmic");
+                functionList.RemoveAll(o => o.Title == "logarithmic");
             }
 
             if (checkBox7.Checked)
             {
-                Graph.functionList.RemoveAll(o => o.Title == "power");
+                functionList.RemoveAll(o => o.Title == "power");
                 Power power = new Power(x, y);
-                Graph.functionList.Add(new FunctionSeries(power.function, x.Min(), x.Max(), 0.0001, "power"));
+                Graph.graphList.Add(power);
+                functionList.Add(new FunctionSeries(power.function, x.Min(), x.Max(), 0.0001, "power"));
             }
             else
             {
-                Graph.functionList.RemoveAll(o => o.Title == "power");
+                functionList.RemoveAll(o => o.Title == "power");
             }
 
             if (checkBox8.Checked)
             {
-                Graph.functionList.RemoveAll(o => o.Title == "quadratic");
+                functionList.RemoveAll(o => o.Title == "quadratic");
                 Quadratic quadratic = new Quadratic(x, y);
-                Graph.functionList.Add(new FunctionSeries(quadratic.function, x.Min(), x.Max(), 0.0001, "quadratic"));
+                Graph.graphList.Add(quadratic);
+                functionList.Add(new FunctionSeries(quadratic.function, x.Min(), x.Max(), 0.0001, "quadratic"));
             }
             else
             {
-                Graph.functionList.RemoveAll(o => o.Title == "quadratic");
+                functionList.RemoveAll(o => o.Title == "quadratic");
             }
-
+            return functionList;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -305,8 +316,28 @@ namespace Approximation
 
         private void button4_Click(object sender, EventArgs e)
         {
-            var myForm = new Form2();
-            myForm.Show();
+            FormCollection fc = Application.OpenForms;
+            bool isShown = false;
+
+            foreach (Form frm in fc)
+            {
+                if (frm.Name == "Form2")
+                    isShown = true;
+            }
+
+            if (isShown == false)
+            {
+                var myForm = new Form2(Graph.graphList);
+                myForm.Show();
+            }
+
+            label1.Text = "a" + (char)0X02E3 + " + " + "a" + (char)0x1D47;
         }
-    }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+    }    
+
 }

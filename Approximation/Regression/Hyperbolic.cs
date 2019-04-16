@@ -19,6 +19,8 @@ namespace Approximation.Regression
             r = getR();
             det = getDet();
             err = getRelativeError();
+            name = "Hyperbolic";
+
 
             function = (z) => a + b / z;
         }

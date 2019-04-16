@@ -19,6 +19,7 @@ namespace Approximation.Regression
             r = getR();
             det = getDet();
             err = getRelativeError();
+            name = "Logarithmic";
 
             function = (z) => a + b * Math.Log(z);
         }

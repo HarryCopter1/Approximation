@@ -19,6 +19,7 @@ namespace Approximation.Regression
             r = getR();
             det = getDet();
             err = getRelativeError();
+            name = "Exponential";
 
             function = (z) => Math.Pow(Math.E, a + b * z);
         }
