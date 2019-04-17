@@ -24,11 +24,12 @@ namespace Approximation
             det = getDet();
             err = getRelativeError();
             name = "Linear";
+            funcText = "ax + b";
 
             function = (z) => a * z + b;
         }
         
-        private double getA()
+        public override double getA()
         {
             double part1 = Funcs.sum(x) * Funcs.sum(y) - x.Count * Funcs.sum(x, y);
             double part2 = Math.Pow(Funcs.sum(x), 2) - x.Count * Funcs.sumPow(x,2);
@@ -36,7 +37,7 @@ namespace Approximation
             return a;
         }
 
-        private double getB()
+        public override double getB()
         {             
             double part1 = Funcs.sum(x) * Funcs.sum(x, y) - Funcs.sumPow(x,2) * Funcs.sum(y);
             double part2 = Math.Pow(Funcs.sum(x), 2) - x.Count * Funcs.sumPow(x,2);
@@ -45,7 +46,7 @@ namespace Approximation
         }
 
         //Коефіцієнт детермінації
-        public double getR()
+        public override double getR()
         {
             double part1 = x.Count * Funcs.sum(x, y) - Funcs.sum(x) * Funcs.sum(y);
             double part2 = Math.Sqrt((x.Count * Funcs.sumPow(x,2) - Math.Pow(Funcs.sum(x), 2)) * 
@@ -55,16 +56,21 @@ namespace Approximation
         }        
 
         //Коефіцієнт детермінації
-        public double getDet()
+        public override double getDet()
         {
             return Math.Pow(r, 2);
         }
 
         //Середня помилка апроксимації
-        public double getRelativeError()
+        public override double getRelativeError()
         {
             double part1 = 1f / x.Count * sumEr() * 100f;
             return part1; 
+        }
+
+        public override string getFuncText()
+        {
+            return funcText;
         }
 
         //Сума

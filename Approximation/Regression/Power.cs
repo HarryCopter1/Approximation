@@ -23,12 +23,13 @@ namespace Approximation.Regression
             det = getDet();
             err = getRelativeError();
             name = "Power";
+            funcText = "a * x" + (char)0X1D47;
 
             function = (z) => a * Math.Pow(z, b);
         }
 
         
-        private double getA()
+        public override double getA()
         {
             double part1 = (1f / x.Count) * Funcs.sumLn(y);
             double part2 = (b / x.Count) * Funcs.sumLn(x);
@@ -36,7 +37,7 @@ namespace Approximation.Regression
             return a;
         }
 
-        private double getB()
+        public override double getB()
         {
             double part1 = (x.Count * Funcs.sumLn(x, y)) - (Funcs.sumLn(x) * Funcs.sumLn(y));
             double part2 = (x.Count * Funcs.sumPowLn(x,2)) - Math.Pow(Funcs.sumLn(x),2);
@@ -46,7 +47,7 @@ namespace Approximation.Regression
 
 
         //Коефіцієнт Кореляції
-        public double getR()
+        public override double getR()
         {
             double r = Math.Sqrt(1f - (sumCor1(y) / sumCor2(y)));
             return r;
@@ -74,13 +75,13 @@ namespace Approximation.Regression
         }
 
         //Коефіцієнт детермінації
-        public double getDet()
+        public override double getDet()
         {
             return Math.Pow(r, 2);
         }
 
         //Середня помилка апроксимації
-        public double getRelativeError()
+        public override double getRelativeError()
         {
             double part1 = 1f / x.Count * sumEr() * 100f;
             return part1;

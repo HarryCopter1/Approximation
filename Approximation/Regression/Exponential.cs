@@ -20,11 +20,12 @@ namespace Approximation.Regression
             det = getDet();
             err = getRelativeError();
             name = "Exponential";
+            funcText = "e" + (char)0x1D43 + (char)0x207A + (char)0x1D47 + (char)0x02E3;
 
             function = (z) => Math.Pow(Math.E, a + b * z);
         }
 
-        private double getB()
+        public override double getB()
         {
             double part1 = x.Count * Funcs.sumLnX(y,x) - Funcs.sum(x) * Funcs.sumLn(y);
             double part2 = x.Count * Funcs.sumPow(x,2) - Math.Pow(Funcs.sum(x),2);
@@ -32,14 +33,14 @@ namespace Approximation.Regression
             return b;
         }
 
-        private double getA()
+        public override double getA()
         {
             double a = 1f / x.Count * Funcs.sumLn(y) - b / x.Count * Funcs.sum(x);
             return a;
         }
 
         //Коефіцієнт Кореляції
-        public double getR()
+        public override double getR()
         {
             double r = Math.Sqrt(1f - (sumCor1(y) / sumCor2(y)));
             return r;
@@ -67,13 +68,13 @@ namespace Approximation.Regression
         }
 
         //Коефіцієнт детермінації
-        public double getDet()
+        public override double getDet()
         {
             return Math.Pow(r, 2);
         }
 
         //Середня помилка апроксимації
-        public double getRelativeError()
+        public override double getRelativeError()
         {
             double part1 = 1f / x.Count * sumEr() * 100f;
             return part1;

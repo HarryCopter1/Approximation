@@ -20,12 +20,13 @@ namespace Approximation.Regression
             det = getDet();
             err = getRelativeError();
             name = "Hyperbolic";
+            funcText = "a + (b/x)";
 
 
             function = (z) => a + b / z;
         }
 
-        private double getB()
+        public override double getB()
         {
             double part1 = x.Count * divYX(x, y) - div1x(x) * Funcs.sum(y);
             double part2 = x.Count * div1xPow(x) - Math.Pow(div1x(x), 2);
@@ -33,7 +34,7 @@ namespace Approximation.Regression
             return b;
         }
 
-        private double getA()
+        public override double getA()
         {
             double a = 1f / x.Count * Funcs.sum(y) - b / x.Count * div1x(x);
             return a;
@@ -41,7 +42,7 @@ namespace Approximation.Regression
 
 
         //Коефіцієнт Кореляції
-        public double getR()
+        public override double getR()
         {
             double r = Math.Sqrt(1f - (sumCor1(y) / sumCor2(y)));
             return r;
@@ -69,13 +70,13 @@ namespace Approximation.Regression
         }
 
         //Коефіцієнт детермінації
-        public double getDet()
+        public override double getDet()
         {
             return Math.Pow(r, 2);
         }
 
         //Середня помилка апроксимації
-        public double getRelativeError()
+        public override double getRelativeError()
         {
             double part1 = 1f / x.Count * sumEr() * 100f;
             return part1;

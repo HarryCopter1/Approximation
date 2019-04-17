@@ -15,6 +15,7 @@ namespace Approximation.Regression
         {
             this.x = x.ToList();
             this.y = y.ToList();
+            name = "Cubic";
 
             Matrix test = new Matrix();
 
@@ -25,12 +26,14 @@ namespace Approximation.Regression
             var result = test.Solve();
 
          
-            name = "Cubic";
             
             a = result[0];
             b = result[1];
             c = result[2];
             d = result[3];
+            
+            funcText = "ax" + (char)0x00B3 + " + " +
+                "bx" + (char)0x00B2 + " + " + "cx" + " + " + "d";
 
             r = getR();
             det = getDet();
@@ -42,7 +45,7 @@ namespace Approximation.Regression
 
 
         //Коефіцієнт Кореляції
-        public double getR()
+        public override double getR()
         {
             double r = Math.Sqrt(1f - (sumCor1(y) / sumCor2(y)));
             return r;
@@ -69,7 +72,7 @@ namespace Approximation.Regression
         }
 
         //Коефіцієнт детермінації
-        public double getDet()
+        public override double getDet()
         {
             return Math.Pow(r, 2);
         }
@@ -81,7 +84,7 @@ namespace Approximation.Regression
         }
 
         //Середня помилка апроксимації
-        public double getRelativeError()
+        public override double getRelativeError()
         {
             double part1 = 1f / x.Count * sumEr() * 100f;
             return part1;

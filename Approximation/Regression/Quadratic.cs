@@ -21,12 +21,14 @@ namespace Approximation.Regression
             det = getDet();
             err = getRelativeError();
             name = "Quadratic";
+            funcText = "ax" + (char)0x00B2 + " + " +
+                "bx + " + "c";
 
             function = (z) => a * Math.Pow(z, 2) + b * z + c;
         }
 
         //Коефіцієнт Кореляції
-        public double getR()
+        public override double getR()
         {
             double r = Math.Sqrt(1f - (sumCor1(y) / sumCor2(y)));
             return r;
@@ -54,13 +56,13 @@ namespace Approximation.Regression
         }
 
         //Коефіцієнт детермінації
-        public double getDet()
+        public override double getDet()
         {
             return Math.Pow(r, 2);
         }
 
         //Середня помилка апроксимації
-        public double getRelativeError()
+        public override double getRelativeError()
         {
             double part1 = 1f / x.Count * sumEr() * 100f;
             return part1;

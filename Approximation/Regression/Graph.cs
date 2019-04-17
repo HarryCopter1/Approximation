@@ -18,6 +18,7 @@ namespace Approximation.Regression
         protected double det;
         protected double err;
         protected string name;
+        protected string funcText;
         public Func<double, double> function;
         List<double> x = new List<double>();
         List<double> y = new List<double>();
@@ -30,13 +31,13 @@ namespace Approximation.Regression
             this.x = x.ToList();
             this.y = y.ToList();
         }
-                
+
         public PlotModel getModel(List<FunctionSeries> functionList)
         {
             var model = new PlotModel { Title = "Approximation", Subtitle = "Graph" };
-                        
 
-            foreach (FunctionSeries ser in  functionList)
+
+            foreach (FunctionSeries ser in functionList)
             {
                 model.Series.Add(ser);
             }
@@ -47,38 +48,52 @@ namespace Approximation.Regression
             return model;
         }
 
-        public double getA()
+        public virtual double getA()
         {
             return a;
         }
 
-        public double getB()
+        public virtual double getB()
         {
             return b;
         }
 
+        public virtual double getC()
+        {
+            return c;
+        }
+
+        public virtual double getD()
+        {
+            return d;
+        }
+
         //Коефіцієнт детермінації
-        public double getR()
+        public virtual double getR()
         {
             return r;
         }
 
         //Коефіцієнт детермінації
-        public double getDet()
+        public virtual double getDet()
         {
             return det;
         }
 
         //Середня помилка апроксимації
-        public double getRelativeError()
+        public virtual double getRelativeError()
         {
-            return err;        
+            return err;
         }
 
-        public string getName()
+        public virtual string getName()
         {
             return name;
         }
-        
+
+        public virtual string getFuncText()
+        {
+            return funcText;
+        }
     }
 }

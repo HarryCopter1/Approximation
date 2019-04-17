@@ -325,6 +325,8 @@ namespace Approximation
                     isShown = true;
             }
 
+            fc = null;
+
             if (isShown == false)
             {
                 var myForm = new Form2(Graph.graphList);
