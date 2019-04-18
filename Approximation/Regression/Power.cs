@@ -3,6 +3,9 @@ using OxyPlot.Axes;
 using OxyPlot.Series;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
+using System.Resources;
+using Approximation.Properties;
 using System.Linq;
 using System.Text;
 
@@ -12,6 +15,7 @@ namespace Approximation.Regression
     {
         List<double> x = new List<double>();
         List<double> y = new List<double>();
+        public static ResourceManager rm = new ResourceManager("Approximation.Properties." + Settings.Default["Language"], Assembly.GetExecutingAssembly());
 
         public Power(List<double> x, List<double> y) : base(x, y)
         {
@@ -22,7 +26,7 @@ namespace Approximation.Regression
             r = getR();
             det = getDet();
             err = getRelativeError();
-            name = "Power";
+            name = rm.GetString("Power");
             funcText = "a * x" + (char)0X1D47;
 
             function = (z) => a * Math.Pow(z, b);

@@ -5,6 +5,9 @@ using OxyPlot.Series;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Resources;
+using Approximation.Properties;
 using System.Text;
 
 namespace Approximation
@@ -13,6 +16,7 @@ namespace Approximation
     {
         List<double> x = new List<double>();
         List<double> y = new List<double>();
+        public static ResourceManager rm = new ResourceManager("Approximation.Properties." + Settings.Default["Language"], Assembly.GetExecutingAssembly());
 
         public Linear(List<double> x, List<double> y) : base(x, y)
         {
@@ -23,7 +27,7 @@ namespace Approximation
             r = getR();
             det = getDet();
             err = getRelativeError();
-            name = "Linear";
+            name = rm.GetString("Linear");
             funcText = "ax + b";
 
             function = (z) => a * z + b;

@@ -15,3 +15,7 @@ D:\Large Projects\Approximation\Approximation\bin\Debug\OxyPlot.WindowsForms.xml
 D:\Large Projects\Approximation\Approximation\obj\Debug\Approximation.Form1.resources
 D:\Large Projects\Approximation\Approximation\obj\Debug\Approximation.csproj.CopyComplete
 D:\Large Projects\Approximation\Approximation\obj\Debug\Approximation.Form2.resources
+D:\Large Projects\Approximation\Approximation\bin\Debug\Approximation.exe.config
+D:\Large Projects\Approximation\Approximation\obj\Debug\Approximation.Form3.resources
+D:\Large Projects\Approximation\Approximation\obj\Debug\Approximation.Properties.en.resources
+D:\Large Projects\Approximation\Approximation\obj\Debug\Approximation.Properties.ua.resources

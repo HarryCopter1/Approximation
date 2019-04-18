@@ -117,16 +117,79 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>50</value>
-  </metadata>
+  <data name="abExponential" xml:space="preserve">
+    <value>ab-Exponential regression</value>
+  </data>
+  <data name="Calculate" xml:space="preserve">
+    <value>Calculate</value>
+  </data>
+  <data name="ClearGraph" xml:space="preserve">
+    <value>Clear graph</value>
+  </data>
+  <data name="ClearInput" xml:space="preserve">
+    <value>Clear input</value>
+  </data>
+  <data name="Correlation" xml:space="preserve">
+    <value>Correlation coefficient</value>
+  </data>
+  <data name="Cubic" xml:space="preserve">
+    <value>Cubic regression</value>
+  </data>
+  <data name="Determination" xml:space="preserve">
+    <value>Coefficient of determination</value>
+  </data>
+  <data name="DigitsText" xml:space="preserve">
+    <value>Digits after the decimal point</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Average relative error, %</value>
+  </data>
+  <data name="Exponential" xml:space="preserve">
+    <value>Exponential regression</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="Hyperbolic" xml:space="preserve">
+    <value>Hyperbolic regression</value>
+  </data>
+  <data name="InputData" xml:space="preserve">
+    <value>Input data</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Linear" xml:space="preserve">
+    <value>Linear regression</value>
+  </data>
+  <data name="Logarithmic" xml:space="preserve">
+    <value>Logarithmic regression</value>
+  </data>
+  <data name="Power" xml:space="preserve">
+    <value>Power regression</value>
+  </data>
+  <data name="Quadratic" xml:space="preserve">
+    <value>Quadratic regression</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="SelectFunction" xml:space="preserve">
+    <value>Select a function</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="ShowInf" xml:space="preserve">
+    <value>Show addicional informacion</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>Export to</value>
+  </data>
 </root>

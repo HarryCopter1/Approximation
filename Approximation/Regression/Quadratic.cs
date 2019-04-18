@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Approximation.Properties;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Resources;
 using System.Text;
 
 namespace Approximation.Regression
@@ -9,6 +12,8 @@ namespace Approximation.Regression
     {
         List<double> x = new List<double>();
         List<double> y = new List<double>();
+        double c;
+        public static ResourceManager rm = new ResourceManager("Approximation.Properties." + Settings.Default["Language"], Assembly.GetExecutingAssembly());
 
         public Quadratic(List<double> x, List<double> y) : base(x, y)
         {
@@ -20,11 +25,16 @@ namespace Approximation.Regression
             r = getR();
             det = getDet();
             err = getRelativeError();
-            name = "Quadratic";
+            name = rm.GetString("Quadratic");
             funcText = "ax" + (char)0x00B2 + " + " +
                 "bx + " + "c";
 
             function = (z) => a * Math.Pow(z, 2) + b * z + c;
+        }
+
+        public override double getC()
+        {
+            return c;
         }
 
         //Коефіцієнт Кореляції

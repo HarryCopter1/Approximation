@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Resources;
+using Approximation.Properties;
 using System.Text;
 using System.Windows.Forms;
 
@@ -10,12 +13,17 @@ namespace Approximation.Regression
     {
         List<double> x = new List<double>();
         List<double> y = new List<double>();
+        public static ResourceManager rm = new ResourceManager("Approximation.Properties." + Settings.Default["Language"], Assembly.GetExecutingAssembly());
+
+        double c;
+        double d;
+
 
         public Cubic(List<double> x, List<double> y) : base(x, y)
         {
             this.x = x.ToList();
             this.y = y.ToList();
-            name = "Cubic";
+            name = rm.GetString("Cubic");
 
             Matrix test = new Matrix();
 
@@ -42,7 +50,15 @@ namespace Approximation.Regression
             function = (z) => a * Math.Pow(z,3)+ b*Math.Pow(z,2) + c * z + d;
         }
 
+        public override double getC()
+        {
+            return c;
+        }
 
+        public override double getD()
+        {
+            return d;
+        }
 
         //Коефіцієнт Кореляції
         public override double getR()

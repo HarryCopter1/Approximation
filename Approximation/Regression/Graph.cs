@@ -12,8 +12,8 @@ namespace Approximation.Regression
     {
         protected double a;
         protected double b;
-        protected double c;
-        protected double d;
+       /* protected double c;
+        protected double d;*/
         protected double r;
         protected double det;
         protected double err;
@@ -60,12 +60,12 @@ namespace Approximation.Regression
 
         public virtual double getC()
         {
-            return c;
+            return 1 / 0F;
         }
 
         public virtual double getD()
         {
-            return d;
+            return 1/0F;
         }
 
         //Коефіцієнт детермінації

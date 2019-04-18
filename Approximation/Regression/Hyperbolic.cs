@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Reflection;
+using System.Resources;
+using Approximation.Properties;
 
 namespace Approximation.Regression
 {
@@ -9,6 +12,7 @@ namespace Approximation.Regression
     {
         List<double> x = new List<double>();
         List<double> y = new List<double>();
+        public static ResourceManager rm = new ResourceManager("Approximation.Properties." + Settings.Default["Language"], Assembly.GetExecutingAssembly());
 
         public Hyperbolic(List<double> x, List<double> y) : base(x, y)
         {
@@ -19,7 +23,7 @@ namespace Approximation.Regression
             r = getR();
             det = getDet();
             err = getRelativeError();
-            name = "Hyperbolic";
+            name = rm.GetString("Hyperbolic");
             funcText = "a + (b/x)";
 
 
