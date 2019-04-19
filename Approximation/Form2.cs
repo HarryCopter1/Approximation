@@ -11,22 +11,22 @@ namespace Approximation
     public partial class Form2 : Form
     {
         private List<Graph> approx;
-        public static ResourceManager rm = new ResourceManager("Approximation.Properties." + Settings.Default["Language"], Assembly.GetExecutingAssembly());
+        public static ResourceManager rm = Form1.rm;
 
         public Form2(List<Graph> approx)
         {
             InitializeComponent();
             this.approx = approx;
             createDetails(approx);
+            this.Text = rm.GetString("AddInf");
             this.Size = new System.Drawing.Size(835, 60+80*this.approx.Count);
         }
 
         /*
-         * Закінчити переклад
-         * добавити переклад вікон
-         * добавити переклад вікна збереження
-         * відображення графіків якесь хєрове, не помішається на компонент
-         *  
+         *         
+         * 
+         *
+         *  налаштувати вікна
          */ 
 
         void createDetails(List<Graph> approx)
@@ -65,7 +65,7 @@ namespace Approximation
                 label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
                 label3.Location = new System.Drawing.Point(400, 80 * i + 42);
                 label3.Size = new System.Drawing.Size(400, 18);
-                label3.Text = rm.GetString("Error") + " = " + Math.Round(approx[i].getRelativeError(),digits).ToString() + " %";
+                label3.Text = rm.GetString("ErrorAp") + " = " + Math.Round(approx[i].getRelativeError(),digits).ToString() + " %";
 
                 label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
                 label4.Location = new System.Drawing.Point(400, 80 * i + 59);

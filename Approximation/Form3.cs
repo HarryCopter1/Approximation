@@ -14,7 +14,7 @@ namespace Approximation
 {
     public partial class Form3 : Form
     {
-        public static ResourceManager rm = new ResourceManager("Approximation.Properties." + Settings.Default["Language"], Assembly.GetExecutingAssembly());
+        public static ResourceManager rm = Form1.rm;
 
         public Form3()
         {
@@ -25,6 +25,8 @@ namespace Approximation
         {
             label1.Text = rm.GetString("DigitsText");
             label3.Text = rm.GetString("Language");
+            button1.Text = rm.GetString("Save");
+            this.Text = rm.GetString("Settings");
 
             label2.Text = Settings.Default["Digits"].ToString();
             trackBar1.Value = Convert.ToInt32(Settings.Default["Digits"]);
@@ -49,8 +51,8 @@ namespace Approximation
             if (comboBox1.SelectedIndex == 1)
                 Settings.Default["Language"] = "en";
             Settings.Default.Save();
-            string message = "Restart program to accept changes";
-            string title = "Saved";
+            string message = rm.GetString("RestartText");
+            string title = rm.GetString("Saved");
             MessageBox.Show(message, title);
             this.Close();
         }

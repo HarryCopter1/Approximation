@@ -12,8 +12,6 @@ namespace Approximation.Regression
     {
         protected double a;
         protected double b;
-       /* protected double c;
-        protected double d;*/
         protected double r;
         protected double det;
         protected double err;
@@ -43,8 +41,8 @@ namespace Approximation.Regression
             }
 
             model.Series.Add(Dots.getScatter(x, y));
-            model.Axes.Add(new LinearAxis { IsPanEnabled = false, IsZoomEnabled = false, Position = AxisPosition.Bottom, Minimum = x.Min() - 0.5, Maximum = x.Max() + 0.5 });
-            model.Axes.Add(new LinearAxis { IsPanEnabled = false, IsZoomEnabled = false, Position = AxisPosition.Left, Minimum = y.Min() - 0.5, Maximum = y.Max() + 0.5 });
+            model.Axes.Add(new LinearAxis { IsPanEnabled = false, IsZoomEnabled = false, Position = AxisPosition.Bottom});
+            model.Axes.Add(new LinearAxis { IsPanEnabled = false, IsZoomEnabled = false, Position = AxisPosition.Left });
             return model;
         }
 
@@ -58,6 +56,7 @@ namespace Approximation.Regression
             return b;
         }
 
+        //
         public virtual double getC()
         {
             return 1 / 0F;
@@ -65,7 +64,7 @@ namespace Approximation.Regression
 
         public virtual double getD()
         {
-            return 1/0F;
+            return 1 / 0F;
         }
 
         //Коефіцієнт детермінації

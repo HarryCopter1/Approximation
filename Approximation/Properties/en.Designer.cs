@@ -70,6 +70,15 @@ namespace Approximation.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Addicional informacion.
+        /// </summary>
+        internal static string AddInf {
+            get {
+                return ResourceManager.GetString("AddInf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Calculate.
         /// </summary>
         internal static string Calculate {
@@ -133,11 +142,20 @@ namespace Approximation.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Average relative error, %.
+        ///   Looks up a localized string similar to Error.
         /// </summary>
         internal static string Error {
             get {
                 return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Average relative error, %.
+        /// </summary>
+        internal static string ErrorAp {
+            get {
+                return ResourceManager.GetString("ErrorAp", resourceCulture);
             }
         }
         
@@ -232,6 +250,15 @@ namespace Approximation.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There is no functions on graph.
+        /// </summary>
+        internal static string NoGraph {
+            get {
+                return ResourceManager.GetString("NoGraph", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Power regression.
         /// </summary>
         internal static string Power {
@@ -250,11 +277,38 @@ namespace Approximation.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Restart program to accept changes.
+        /// </summary>
+        internal static string RestartText {
+            get {
+                return ResourceManager.GetString("RestartText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save.
         /// </summary>
         internal static string Save {
             get {
                 return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Saved.
+        /// </summary>
+        internal static string Saved {
+            get {
+                return ResourceManager.GetString("Saved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save an image.
+        /// </summary>
+        internal static string SaveImg {
+            get {
+                return ResourceManager.GetString("SaveImg", resourceCulture);
             }
         }
         

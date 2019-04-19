@@ -52,7 +52,7 @@ namespace Approximation
             fileToolStripMenuItem.Text = rm.GetString("File");
             settingsToolStripMenuItem.Text = rm.GetString("Settings");
             exportToolStripMenuItem.Text = rm.GetString("Export");
-            exitToolStripMenuItem.Text = rm.GetString("Save");
+            exitToolStripMenuItem.Text = rm.GetString("Exit");
 
         }
 
@@ -112,19 +112,33 @@ namespace Approximation
         {
             List<FunctionSeries> functionList = new List<FunctionSeries>();
 
+
+
             if (checkBox1.Checked)
             {
-                functionList.RemoveAll(o => o.Title == rm.GetString("abExponential"));
-                abExponential abexpo = new abExponential(x, y);
-                Graph.graphList.Add(abexpo);
-                functionList.Add(new FunctionSeries(abexpo.function, x.Min(), x.Max(), 0.0001, rm.GetString("abExponential")));
+                functionList.RemoveAll(o => o.Title == rm.GetString("Linear"));
+                Linear linear = new Linear(x, y);
+                Graph.graphList.Add(linear);
+                functionList.Add(new FunctionSeries(linear.function, x.Min(), x.Max(), 0.0001, rm.GetString("Linear")));
             }
             else
             {
-                functionList.RemoveAll(o => o.Title == rm.GetString("abExponential"));
+                functionList.RemoveAll(o => o.Title == rm.GetString("Linear"));
             }
 
             if (checkBox2.Checked)
+            {
+                functionList.RemoveAll(o => o.Title == rm.GetString("Quadratic"));
+                Quadratic quadratic = new Quadratic(x, y);
+                Graph.graphList.Add(quadratic);
+                functionList.Add(new FunctionSeries(quadratic.function, x.Min(), x.Max(), 0.0001, rm.GetString("Quadratic")));
+            }
+            else
+            {
+                functionList.RemoveAll(o => o.Title == rm.GetString("Quadratic"));
+            }
+
+            if (checkBox3.Checked)
             {
                 functionList.RemoveAll(o => o.Title == rm.GetString("Cubic"));
                 Cubic cubic = new Cubic(x, y);
@@ -136,40 +150,29 @@ namespace Approximation
                 functionList.RemoveAll(o => o.Title == rm.GetString("Cubic"));
             }
 
-            if (checkBox3.Checked)
-            {
-                functionList.RemoveAll(o => o.Title == rm.GetString("Exponential"));
-                Exponential exponential = new Exponential(x, y);
-                Graph.graphList.Add(exponential);
-                functionList.Add(new FunctionSeries(exponential.function, x.Min(), x.Max(), 0.0001, rm.GetString("Exponential")));
-            }
-            else
-            {
-                functionList.RemoveAll(o => o.Title == rm.GetString("Exponential"));
-            }
 
             if (checkBox4.Checked)
             {
-                functionList.RemoveAll(o => o.Title == rm.GetString("Hyperbolic"));
-                Hyperbolic hyperbolic = new Hyperbolic(x, y);
-                Graph.graphList.Add(hyperbolic);
-                functionList.Add(new FunctionSeries(hyperbolic.function, x.Min(), x.Max(), 0.0001, rm.GetString("Hyperbolic")));
+                functionList.RemoveAll(o => o.Title == rm.GetString("Power"));
+                Power power = new Power(x, y);
+                Graph.graphList.Add(power);
+                functionList.Add(new FunctionSeries(power.function, x.Min(), x.Max(), 0.0001, rm.GetString("Power")));
             }
             else
             {
-                functionList.RemoveAll(o => o.Title == rm.GetString("Hyperbolic"));
+                functionList.RemoveAll(o => o.Title == rm.GetString("Power"));
             }
 
             if (checkBox5.Checked)
             {
-                functionList.RemoveAll(o => o.Title == rm.GetString("Linear"));
-                Linear linear = new Linear(x, y);
-                Graph.graphList.Add(linear);
-                functionList.Add(new FunctionSeries(linear.function, x.Min(), x.Max(), 0.0001, rm.GetString("Linear")));
+                functionList.RemoveAll(o => o.Title == rm.GetString("abExponential"));
+                abExponential abexpo = new abExponential(x, y);
+                Graph.graphList.Add(abexpo);
+                functionList.Add(new FunctionSeries(abexpo.function, x.Min(), x.Max(), 0.0001, rm.GetString("abExponential")));
             }
             else
             {
-                functionList.RemoveAll(o => o.Title == rm.GetString("Linear"));
+                functionList.RemoveAll(o => o.Title == rm.GetString("abExponential"));
             }
 
             if (checkBox6.Checked)
@@ -186,27 +189,29 @@ namespace Approximation
 
             if (checkBox7.Checked)
             {
-                functionList.RemoveAll(o => o.Title == rm.GetString("Power"));
-                Power power = new Power(x, y);
-                Graph.graphList.Add(power);
-                functionList.Add(new FunctionSeries(power.function, x.Min(), x.Max(), 0.0001, rm.GetString("Power")));
+                functionList.RemoveAll(o => o.Title == rm.GetString("Hyperbolic"));
+                Hyperbolic hyperbolic = new Hyperbolic(x, y);
+                Graph.graphList.Add(hyperbolic);
+                functionList.Add(new FunctionSeries(hyperbolic.function, x.Min(), x.Max(), 0.0001, rm.GetString("Hyperbolic")));
             }
             else
             {
-                functionList.RemoveAll(o => o.Title == rm.GetString("Power"));
+                functionList.RemoveAll(o => o.Title == rm.GetString("Hyperbolic"));
             }
 
             if (checkBox8.Checked)
             {
-                functionList.RemoveAll(o => o.Title == rm.GetString("Quadratic"));
-                Quadratic quadratic = new Quadratic(x, y);
-                Graph.graphList.Add(quadratic);
-                functionList.Add(new FunctionSeries(quadratic.function, x.Min(), x.Max(), 0.0001, rm.GetString("Quadratic")));
+                functionList.RemoveAll(o => o.Title == rm.GetString("Exponential"));
+                Exponential exponential = new Exponential(x, y);
+                Graph.graphList.Add(exponential);
+                functionList.Add(new FunctionSeries(exponential.function, x.Min(), x.Max(), 0.0001, rm.GetString("Exponential")));
             }
             else
             {
-                functionList.RemoveAll(o => o.Title == rm.GetString("Quadratic"));
+                functionList.RemoveAll(o => o.Title == rm.GetString("Exponential"));
             }
+
+
             return functionList;
         }
 
@@ -215,18 +220,16 @@ namespace Approximation
             clearPlot();
         }
 
+        //Clear graph
         private void clearPlot()
         {
-            //linear = null;
-            //this.plot1.Model = null;
             myModel.Title = "";
             myModel.Series.Clear();
             foreach (var axis in myModel.Axes)
                 axis.Reset();
             myModel.ResetAllAxes();
             myModel.InvalidatePlot(true);
-
-            //plot1.Dispose();
+            
             GC.Collect();
             GC.WaitForPendingFinalizers();
         }
@@ -241,7 +244,7 @@ namespace Approximation
             string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop); //desktop path
             saveFile.InitialDirectory = desktop;
             saveFile.Filter = "Image Files(*.png) |*.png;";
-            saveFile.Title = "Save an image";
+            saveFile.Title = rm.GetString("SaveImg");
             saveFile.FileName = "graph";
             saveFile.AddExtension = true;
             saveFile.DefaultExt = "png";
@@ -264,7 +267,7 @@ namespace Approximation
             string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop); //desktop path
             saveFile.InitialDirectory = desktop;
             saveFile.Filter = "Pdf Files(*.pdf) |*.pdf;";
-            saveFile.Title = "Save an image";
+            saveFile.Title = rm.GetString("SaveImg");
             saveFile.FileName = "graph";
             saveFile.AddExtension = true;
             saveFile.DefaultExt = "pdf";
@@ -287,7 +290,7 @@ namespace Approximation
             string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop); //desktop path
             saveFile.InitialDirectory = desktop;
             saveFile.Filter = "Svg Files(*.svg) |*.svg;";
-            saveFile.Title = "Save an image";
+            saveFile.Title = rm.GetString("SaveImg");
             saveFile.FileName = "graph";
             saveFile.AddExtension = true;
             saveFile.DefaultExt = "svg";
@@ -343,29 +346,34 @@ namespace Approximation
 
         private void button4_Click(object sender, EventArgs e)
         {
-            FormCollection fc = Application.OpenForms;
-            bool isShown = false;
-
-            foreach (Form frm in fc)
+            if ((Graph.graphList != null) && (!Graph.graphList.Any()))
             {
-                if (frm.Name == "Form2")
-                    isShown = true;
+                string message = rm.GetString("NoGraph");
+                string title = rm.GetString("Error");
+                MessageBox.Show(message, title);
             }
-
-            fc = null;
-
-            if (isShown == false)
+            else
             {
-                var myForm = new Form2(Graph.graphList);
-                myForm.Show();
+                FormCollection fc = Application.OpenForms;
+                bool isShown = false;
+
+                foreach (Form frm in fc)
+                {
+                    if (frm.Name == "Form2")
+                        isShown = true;
+                }
+
+                fc = null;
+
+                if (isShown == false)
+                {
+                    var myForm = new Form2(Graph.graphList);
+                    myForm.Show();
+                }
             }
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            this.TopMost = true;
-        }
-
+        //Settings button
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormCollection fc = Application.OpenForms;

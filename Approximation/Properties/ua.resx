@@ -141,7 +141,7 @@
   <data name="DigitsText" xml:space="preserve">
     <value>Знаків після коми</value>
   </data>
-  <data name="Error" xml:space="preserve">
+  <data name="ErrorAp" xml:space="preserve">
     <value>Середня помилка апроксимації, %</value>
   </data>
   <data name="Exponential" xml:space="preserve">
@@ -191,5 +191,23 @@
   </data>
   <data name="Export" xml:space="preserve">
     <value>Експорт</value>
+  </data>
+  <data name="AddInf" xml:space="preserve">
+    <value>Додаткова інформація</value>
+  </data>
+  <data name="RestartText" xml:space="preserve">
+    <value>Зміни вступлять в силу при наступному запуску програми</value>
+  </data>
+  <data name="Saved" xml:space="preserve">
+    <value>Збережено</value>
+  </data>
+  <data name="SaveImg" xml:space="preserve">
+    <value>Зберегти зображення</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Помилка</value>
+  </data>
+  <data name="NoGraph" xml:space="preserve">
+    <value>На графіку немає функцій</value>
   </data>
 </root>

@@ -1,6 +1,5 @@
 D:\Large Projects\Approximation\Approximation\bin\Debug\Approximation.exe
 D:\Large Projects\Approximation\Approximation\bin\Debug\Approximation.pdb
-D:\Large Projects\Approximation\Approximation\obj\Debug\Approximation.csprojAssemblyReference.cache
 D:\Large Projects\Approximation\Approximation\obj\Debug\Approximation.Properties.Resources.resources
 D:\Large Projects\Approximation\Approximation\obj\Debug\Approximation.csproj.GenerateResource.cache
 D:\Large Projects\Approximation\Approximation\obj\Debug\Approximation.csproj.CoreCompileInputs.cache
@@ -19,3 +18,4 @@ D:\Large Projects\Approximation\Approximation\bin\Debug\Approximation.exe.config
 D:\Large Projects\Approximation\Approximation\obj\Debug\Approximation.Form3.resources
 D:\Large Projects\Approximation\Approximation\obj\Debug\Approximation.Properties.en.resources
 D:\Large Projects\Approximation\Approximation\obj\Debug\Approximation.Properties.ua.resources
+D:\Large Projects\Approximation\Approximation\obj\Debug\Approximation.csprojAssemblyReference.cache

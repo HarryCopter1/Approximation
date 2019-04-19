@@ -70,6 +70,15 @@ namespace Approximation.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Додаткова інформація.
+        /// </summary>
+        internal static string AddInf {
+            get {
+                return ResourceManager.GetString("AddInf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Розрахунок.
         /// </summary>
         internal static string Calculate {
@@ -133,11 +142,20 @@ namespace Approximation.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Середня помилка апроксимації, %.
+        ///   Looks up a localized string similar to Помилка.
         /// </summary>
         internal static string Error {
             get {
                 return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Середня помилка апроксимації, %.
+        /// </summary>
+        internal static string ErrorAp {
+            get {
+                return ResourceManager.GetString("ErrorAp", resourceCulture);
             }
         }
         
@@ -232,6 +250,15 @@ namespace Approximation.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to На графіку немає функцій.
+        /// </summary>
+        internal static string NoGraph {
+            get {
+                return ResourceManager.GetString("NoGraph", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Степенева апроксимація.
         /// </summary>
         internal static string Power {
@@ -250,11 +277,38 @@ namespace Approximation.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Зміни вступлять в силу при наступному запуску програми.
+        /// </summary>
+        internal static string RestartText {
+            get {
+                return ResourceManager.GetString("RestartText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Зберегти.
         /// </summary>
         internal static string Save {
             get {
                 return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Збережено.
+        /// </summary>
+        internal static string Saved {
+            get {
+                return ResourceManager.GetString("Saved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Зберегти зображення.
+        /// </summary>
+        internal static string SaveImg {
+            get {
+                return ResourceManager.GetString("SaveImg", resourceCulture);
             }
         }
         

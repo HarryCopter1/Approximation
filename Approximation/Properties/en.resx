@@ -141,7 +141,7 @@
   <data name="DigitsText" xml:space="preserve">
     <value>Digits after the decimal point</value>
   </data>
-  <data name="Error" xml:space="preserve">
+  <data name="ErrorAp" xml:space="preserve">
     <value>Average relative error, %</value>
   </data>
   <data name="Exponential" xml:space="preserve">
@@ -191,5 +191,23 @@
   </data>
   <data name="Export" xml:space="preserve">
     <value>Export to</value>
+  </data>
+  <data name="AddInf" xml:space="preserve">
+    <value>Addicional informacion</value>
+  </data>
+  <data name="RestartText" xml:space="preserve">
+    <value>Restart program to accept changes</value>
+  </data>
+  <data name="Saved" xml:space="preserve">
+    <value>Saved</value>
+  </data>
+  <data name="SaveImg" xml:space="preserve">
+    <value>Save an image</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="NoGraph" xml:space="preserve">
+    <value>There is no functions on graph</value>
   </data>
 </root>

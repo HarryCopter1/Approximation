@@ -82,7 +82,7 @@
             this.comboBox1.Items.AddRange(new object[] {
             "Українська",
             "English"});
-            this.comboBox1.Location = new System.Drawing.Point(25, 129);
+            this.comboBox1.Location = new System.Drawing.Point(25, 142);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(155, 21);
             this.comboBox1.TabIndex = 4;
@@ -107,6 +107,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
             this.Name = "Form3";
             this.Text = "Settings";
             this.Load += new System.EventHandler(this.Form3_Load);
