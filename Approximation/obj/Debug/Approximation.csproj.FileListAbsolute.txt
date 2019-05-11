@@ -11,11 +11,11 @@ D:\Large Projects\Approximation\Approximation\bin\Debug\OxyPlot.pdb
 D:\Large Projects\Approximation\Approximation\bin\Debug\OxyPlot.xml
 D:\Large Projects\Approximation\Approximation\bin\Debug\OxyPlot.WindowsForms.pdb
 D:\Large Projects\Approximation\Approximation\bin\Debug\OxyPlot.WindowsForms.xml
-D:\Large Projects\Approximation\Approximation\obj\Debug\Approximation.Form1.resources
 D:\Large Projects\Approximation\Approximation\obj\Debug\Approximation.csproj.CopyComplete
-D:\Large Projects\Approximation\Approximation\obj\Debug\Approximation.Form2.resources
 D:\Large Projects\Approximation\Approximation\bin\Debug\Approximation.exe.config
-D:\Large Projects\Approximation\Approximation\obj\Debug\Approximation.Form3.resources
 D:\Large Projects\Approximation\Approximation\obj\Debug\Approximation.Properties.en.resources
 D:\Large Projects\Approximation\Approximation\obj\Debug\Approximation.Properties.ua.resources
 D:\Large Projects\Approximation\Approximation\obj\Debug\Approximation.csprojAssemblyReference.cache
+D:\Large Projects\Approximation\Approximation\obj\Debug\Approximation.MainForm.resources
+D:\Large Projects\Approximation\Approximation\obj\Debug\Approximation.InfForm.resources
+D:\Large Projects\Approximation\Approximation\obj\Debug\Approximation.SettingsForm.resources

@@ -1,19 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Reflection;
-using System.Resources;
-using Approximation.Properties;
 
 namespace Approximation.Regression
 {
     class Hyperbolic : Graph
     {
-        List<double> x = new List<double>();
-        List<double> y = new List<double>();
-        public static ResourceManager rm = new ResourceManager("Approximation.Properties." + Settings.Default["Language"], Assembly.GetExecutingAssembly());
-
         public Hyperbolic(List<double> x, List<double> y) : base(x, y)
         {
             this.x = x.ToList();

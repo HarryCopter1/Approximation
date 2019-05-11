@@ -1,21 +1,11 @@
-﻿using OxyPlot;
-using OxyPlot.Axes;
-using OxyPlot.Series;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Reflection;
-using System.Resources;
-using Approximation.Properties;
 using System.Linq;
-using System.Text;
 
 namespace Approximation.Regression
 {
     public class Power : Graph
     {
-        List<double> x = new List<double>();
-        List<double> y = new List<double>();
-        public static ResourceManager rm = new ResourceManager("Approximation.Properties." + Settings.Default["Language"], Assembly.GetExecutingAssembly());
 
         public Power(List<double> x, List<double> y) : base(x, y)
         {

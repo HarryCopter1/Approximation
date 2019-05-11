@@ -1,19 +1,12 @@
-﻿using Approximation.Properties;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Resources;
-using System.Text;
 
 namespace Approximation.Regression
 {
     public class Quadratic : Graph
     {
-        List<double> x = new List<double>();
-        List<double> y = new List<double>();
-        double c;
-        public static ResourceManager rm = new ResourceManager("Approximation.Properties." + Settings.Default["Language"], Assembly.GetExecutingAssembly());
+        private double c;
 
         public Quadratic(List<double> x, List<double> y) : base(x, y)
         {

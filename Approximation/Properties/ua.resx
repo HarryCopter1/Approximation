@@ -210,4 +210,11 @@
   <data name="NoGraph" xml:space="preserve">
     <value>На графіку немає функцій</value>
   </data>
+  <data name="AboutText" xml:space="preserve">
+    <value>Програма була створена в Visual Studio 2017
+Біликом Ігорем у 2019 році.</value>
+  </data>
+  <data name="About" xml:space="preserve">
+    <value>Про програму</value>
+  </data>
 </root>

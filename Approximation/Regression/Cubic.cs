@@ -1,19 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Resources;
-using Approximation.Properties;
-using System.Text;
-using System.Windows.Forms;
 
 namespace Approximation.Regression
 {
     class Cubic : Graph
     {
-        List<double> x = new List<double>();
-        List<double> y = new List<double>();
-        public static ResourceManager rm = new ResourceManager("Approximation.Properties." + Settings.Default["Language"], Assembly.GetExecutingAssembly());
 
         double c;
         double d;

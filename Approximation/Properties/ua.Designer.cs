@@ -70,6 +70,25 @@ namespace Approximation.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Про програму.
+        /// </summary>
+        internal static string About {
+            get {
+                return ResourceManager.GetString("About", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Програма була створена в Visual Studio 2017
+        ///Біликом Ігорем у 2019 році..
+        /// </summary>
+        internal static string AboutText {
+            get {
+                return ResourceManager.GetString("AboutText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Додаткова інформація.
         /// </summary>
         internal static string AddInf {

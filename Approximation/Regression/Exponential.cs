@@ -1,18 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Reflection;
-using System.Resources;
-using Approximation.Properties;
 
 namespace Approximation.Regression
 {
     class Exponential : Graph
     {
-        List<double> x = new List<double>();
-        List<double> y = new List<double>();
-        public static ResourceManager rm = new ResourceManager("Approximation.Properties." + Settings.Default["Language"], Assembly.GetExecutingAssembly());
 
         public Exponential(List<double> x, List<double> y) : base(x, y)
         {

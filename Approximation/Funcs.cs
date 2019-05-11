@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Approximation
 {
@@ -13,7 +12,7 @@ namespace Approximation
             return arr.Sum();
         }
 
-        //Сума двох масивів
+        //Добуток двох масивів
         static public double sum(List<double> x, List<double> y)
         {
             double sum = 0;

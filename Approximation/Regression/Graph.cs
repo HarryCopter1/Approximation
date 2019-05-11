@@ -4,12 +4,13 @@ using OxyPlot.Series;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Resources;
 
 namespace Approximation.Regression
 {
     public class Graph
     {
+        protected static ResourceManager rm;
         protected double a;
         protected double b;
         protected double r;
@@ -18,8 +19,8 @@ namespace Approximation.Regression
         protected string name;
         protected string funcText;
         public Func<double, double> function;
-        List<double> x = new List<double>();
-        List<double> y = new List<double>();
+        protected List<double> x = new List<double>();
+        protected List<double> y = new List<double>();
 
         static public List<Graph> graphList = new List<Graph>();
 
@@ -28,6 +29,7 @@ namespace Approximation.Regression
         {
             this.x = x.ToList();
             this.y = y.ToList();
+            rm = MainForm.rm;
         }
 
         public PlotModel getModel(List<FunctionSeries> functionList)
