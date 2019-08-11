@@ -8,8 +8,6 @@ namespace Approximation.Regression
     {
         public Hyperbolic(List<double> x, List<double> y) : base(x, y)
         {
-            this.x = x.ToList();
-            this.y = y.ToList();
             b = getB();
             a = getA();
             r = getR();

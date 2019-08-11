@@ -19,3 +19,45 @@ D:\Large Projects\Approximation\Approximation\obj\Debug\Approximation.csprojAsse
 D:\Large Projects\Approximation\Approximation\obj\Debug\Approximation.MainForm.resources
 D:\Large Projects\Approximation\Approximation\obj\Debug\Approximation.InfForm.resources
 D:\Large Projects\Approximation\Approximation\obj\Debug\Approximation.SettingsForm.resources
+D:\Диплом\Approximation\Approximation\bin\Debug\Approximation.exe.config
+D:\Диплом\Approximation\Approximation\bin\Debug\Approximation.exe
+D:\Диплом\Approximation\Approximation\bin\Debug\Approximation.pdb
+D:\Диплом\Approximation\Approximation\bin\Debug\OxyPlot.dll
+D:\Диплом\Approximation\Approximation\bin\Debug\OxyPlot.WindowsForms.dll
+D:\Диплом\Approximation\Approximation\bin\Debug\OxyPlot.pdb
+D:\Диплом\Approximation\Approximation\bin\Debug\OxyPlot.xml
+D:\Диплом\Approximation\Approximation\bin\Debug\OxyPlot.WindowsForms.pdb
+D:\Диплом\Approximation\Approximation\bin\Debug\OxyPlot.WindowsForms.xml
+D:\Диплом\Approximation\Approximation\obj\Debug\Approximation.csprojAssemblyReference.cache
+D:\Диплом\Approximation\Approximation\obj\Debug\Approximation.MainForm.resources
+D:\Диплом\Approximation\Approximation\obj\Debug\Approximation.InfForm.resources
+D:\Диплом\Approximation\Approximation\obj\Debug\Approximation.SettingsForm.resources
+D:\Диплом\Approximation\Approximation\obj\Debug\Approximation.Properties.en.resources
+D:\Диплом\Approximation\Approximation\obj\Debug\Approximation.Properties.Resources.resources
+D:\Диплом\Approximation\Approximation\obj\Debug\Approximation.Properties.ua.resources
+D:\Диплом\Approximation\Approximation\obj\Debug\Approximation.csproj.GenerateResource.cache
+D:\Диплом\Approximation\Approximation\obj\Debug\Approximation.csproj.CoreCompileInputs.cache
+D:\Диплом\Approximation\Approximation\obj\Debug\Approximation.csproj.CopyComplete
+D:\Диплом\Approximation\Approximation\obj\Debug\Approximation.exe
+D:\Диплом\Approximation\Approximation\obj\Debug\Approximation.pdb
+D:\Диплом Білик\Approximation\Approximation\bin\Debug\Approximation.exe.config
+D:\Диплом Білик\Approximation\Approximation\bin\Debug\Approximation.exe
+D:\Диплом Білик\Approximation\Approximation\bin\Debug\Approximation.pdb
+D:\Диплом Білик\Approximation\Approximation\bin\Debug\OxyPlot.dll
+D:\Диплом Білик\Approximation\Approximation\bin\Debug\OxyPlot.WindowsForms.dll
+D:\Диплом Білик\Approximation\Approximation\bin\Debug\OxyPlot.pdb
+D:\Диплом Білик\Approximation\Approximation\bin\Debug\OxyPlot.xml
+D:\Диплом Білик\Approximation\Approximation\bin\Debug\OxyPlot.WindowsForms.pdb
+D:\Диплом Білик\Approximation\Approximation\bin\Debug\OxyPlot.WindowsForms.xml
+D:\Диплом Білик\Approximation\Approximation\obj\Debug\Approximation.csprojAssemblyReference.cache
+D:\Диплом Білик\Approximation\Approximation\obj\Debug\Approximation.MainForm.resources
+D:\Диплом Білик\Approximation\Approximation\obj\Debug\Approximation.InfForm.resources
+D:\Диплом Білик\Approximation\Approximation\obj\Debug\Approximation.SettingsForm.resources
+D:\Диплом Білик\Approximation\Approximation\obj\Debug\Approximation.Properties.en.resources
+D:\Диплом Білик\Approximation\Approximation\obj\Debug\Approximation.Properties.Resources.resources
+D:\Диплом Білик\Approximation\Approximation\obj\Debug\Approximation.Properties.ua.resources
+D:\Диплом Білик\Approximation\Approximation\obj\Debug\Approximation.csproj.GenerateResource.cache
+D:\Диплом Білик\Approximation\Approximation\obj\Debug\Approximation.csproj.CoreCompileInputs.cache
+D:\Диплом Білик\Approximation\Approximation\obj\Debug\Approximation.csproj.CopyComplete
+D:\Диплом Білик\Approximation\Approximation\obj\Debug\Approximation.exe
+D:\Диплом Білик\Approximation\Approximation\obj\Debug\Approximation.pdb

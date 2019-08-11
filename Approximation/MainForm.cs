@@ -89,8 +89,8 @@ namespace Approximation
                 y.Clear();
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
-                    x.Add(Convert.ToInt32(row.Cells[0].Value));
-                    y.Add(Convert.ToInt32(row.Cells[1].Value));
+                    x.Add(Convert.ToDouble(row.Cells[0].Value));
+                    y.Add(Convert.ToDouble(row.Cells[1].Value));
                 }
                 dataGridView1.AllowUserToAddRows = true;
 
@@ -347,13 +347,13 @@ namespace Approximation
         {
             if (!char.IsControl(e.KeyChar)
      && !char.IsDigit(e.KeyChar)
-     && e.KeyChar != '.')
+     && e.KeyChar != ',')
             {
                 e.Handled = true;
             }
             
-            if (e.KeyChar == '.'
-                && (sender as TextBox).Text.IndexOf('.') > -1)
+            if (e.KeyChar == ','
+                && (sender as TextBox).Text.IndexOf(',') > -1)
             {
                 e.Handled = true;
             }

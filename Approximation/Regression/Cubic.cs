@@ -13,8 +13,6 @@ namespace Approximation.Regression
 
         public Cubic(List<double> x, List<double> y) : base(x, y)
         {
-            this.x = x.ToList();
-            this.y = y.ToList();
             name = rm.GetString("Cubic");
 
             Matrix test = new Matrix();

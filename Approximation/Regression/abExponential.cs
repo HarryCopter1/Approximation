@@ -11,8 +11,6 @@ namespace Approximation.Regression
 
         public abExponential(List<double> x, List<double> y) : base(x, y)
         {
-            this.x = x.ToList();
-            this.y = y.ToList();
             b = getB();
             a = getA();
             r = getR();

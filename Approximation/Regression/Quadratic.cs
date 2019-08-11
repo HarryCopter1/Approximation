@@ -10,10 +10,6 @@ namespace Approximation.Regression
 
         public Quadratic(List<double> x, List<double> y) : base(x, y)
         {
-            this.x = x.ToList();
-            this.y = y.ToList();
-
-
             findSolution(getMatrix(), ref a, ref b, ref c);
             r = getR();
             det = getDet();
